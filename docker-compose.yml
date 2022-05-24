@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  run-unit-tests:
+    image: golang:1.12.7
+    working_dir: /go/src/github.com/race-classification
+    volumes:
+      - "./:/go/src/github.com/race-classification"
+    command: go test ./race
+
+  run-app:
+    image: golang:1.12.7
+    working_dir: /go/src/github.com/race-classification
+    volumes:
+      - "./:/go/src/github.com/race-classification"
+    command: go run main.go
